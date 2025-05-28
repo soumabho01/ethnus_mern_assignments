@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List Task</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h2 {
+      background-color: darkgreen;
+      color: white;
+      padding: 10px;
+      width: fit-content;
+      border-top-right-radius: 15px;
+    }
+
+    .box {
+      border: 1px solid gray;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    a {
+      margin-right: 10px;
+    }
+
+    .email-box {
+      border: 1px solid black;
+      padding: 15px;
+      margin-top: 30px;
+      width: fit-content;
+    }
+
+    .email-box h3 {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .email-box p {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>List-Task</h2>
+
+  <div class="box">
+    <p>Click any of the following links</p>
+    <a href="https://www.google.com" target="_blank">Opens in New</a>
+    <a href="https://www.facebook.com" target="_self">Opens in Self</a>
+    <a href="https://www.github.com" target="_parent">Opens in Parent</a>
+    <a href="https://www.youtube.com" target="_top">Opens in Body</a>
+  </div>
+
+  <div class="email-box">
+    <h3>Link to an Email Address</h3>
+    <p>To create a link that opens in the user's email program (to let them send a new email), use <code>mailto:</code> inside the <code>href</code> attribute:</p>
+    <a href="mailto:soumabhosarkar@gmail.com">Send email</a>
+  </div>
+
+</body>
+</html>
