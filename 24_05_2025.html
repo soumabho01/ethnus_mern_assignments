@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degree Selection</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .degree-container {
+            background-color: #ffa500;
+            border-radius: 20px 20px 0 0;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .degree-option {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .degree-option:hover {
+            transform: translateY(-2px);
+        }
+
+        .degree-option:last-child {
+            margin-bottom: 0;
+        }
+
+        .mca {
+            background-color: #ff6347;
+        }
+
+        .bca {
+            background-color: #ffd700;
+            color: #333;
+        }
+
+        .bba {
+            background-color: #32cd32;
+            color: #ffd700;
+        }
+
+        .degree-option:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="degree-container">
+        <div class="degree-option mca">MCA</div>
+        <div class="degree-option bca">BCA</div>
+        <div class="degree-option bba">BBA</div>
+    </div>
+</body>
+</html>
