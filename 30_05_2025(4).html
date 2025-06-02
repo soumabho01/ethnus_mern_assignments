@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyPlayer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, black, purple);
+      color: white;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 2px solid gray;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 40px;
+      color: white;
+      text-shadow: 2px 2px #333;
+    }
+
+    .nav {
+      margin-top: 10px;
+    }
+
+    .nav button {
+      margin: 5px;
+      padding: 10px 20px;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .nav button:hover {
+      background-color: #666;
+    }
+
+    .section {
+      margin: 30px;
+      padding: 20px;
+      border: 2px dashed #aaa;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: flex-start; /* Align images to left */
+      padding-left: 50px;          /* But not fully left */
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .image-row img {
+      width: 120px;
+      height: 180px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+
+    .image-row img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>MyPlayer</h1>
+    <div class="nav">
+      <button>HOME</button>
+      <button>ABOUT US</button>
+      <button>CATEGORY 1</button>
+      <button>PRODUCTION</button>
+      <button>GALLERY</button>
+      <button>CONTACT US</button>
+      <button>LOGIN</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>&rarr; Latest Album ...</h2>
+    <div class="image-row">
+      <img src="1.jpg" alt="Album 1">
+      <img src="2.jpg" alt="Album 2">
+      <img src="3.jpg" alt="Album 3">
+      <img src="4.jpg" alt="Album 4">
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>&rarr; TOP 4 Songs ...</h2>
+    <div class="image-row">
+      <img src="29_05_2025(3).jpg" alt="Song 1">
+      <img src="23_05_2025 (2).jpg" alt="Song 2">
+      <img src="23_05_2025 (3).jpg" alt="Song 3">
+      <img src="27_05_2025(2).png" alt="Song 4">
+    </div>
+  </div>
+</body>
+</html>
