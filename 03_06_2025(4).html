@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Callback Function (Simple Example)</h2>
+
+<script>
+  // A function that takes another function as an argument
+  function sayHello(greeting) {
+    document.writeln("Inside sayHello function");
+    greeting(); // calling the callback function
+  }
+
+  function greeting() {
+    document.writeln("Hello from the callback function!");
+  }
+  sayHello(greeting);
+</script>
+
+</body>
+</html>

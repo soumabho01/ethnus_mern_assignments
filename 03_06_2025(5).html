@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Higher-Order Function (HOF) Example</title>
+</head>
+<body>
+
+  <h2>Higher-Order Function</h2>
+
+  <script>
+
+    function applyOperation(a, b, add) {
+      return add(a, b);
+    }
+
+    const add = (x, y) => x + y;
+
+    document.write("5 + 7 = " + applyOperation(5, 7, add));
+  </script>
+
+</body>
+</html>
