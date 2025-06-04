@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><title>Incremental Hello</title></head>
+<body>
+  <h2>Lets say hello to ourselves dd</h2>
+  <div id="helloContainer"></div>
+
+  <script>
+    // Get current count or start from 1
+    let count = localStorage.getItem("helloCount");
+    count = count ? parseInt(count) + 1 : 1;
+
+    // Save updated count
+    localStorage.setItem("helloCount", count);
+
+    // Print "Hello" that many times
+    const container = document.getElementById("helloContainer");
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement("p");
+      p.textContent = "Hello";
+      container.appendChild(p);
+    }
+  </script>
+</body>
+</html>
+
