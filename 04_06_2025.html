@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+    input, textarea {
+      border: 2px solid #ccc;
+      padding: 5px;
+    }
+    input.error-border, textarea.error-border {
+      border-color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+
+  <form id="registrationForm" onsubmit="return validateForm()">
+    <label>Name:</label>
+    <input type="text" id="name"><br>
+    <span class="error" id="nameError"></span><br>
+
+    <label>Email:</label>
+    <input type="text" id="email"><br>
+    <span class="error" id="emailError"></span><br>
+
+    <label>Website:</label>
+    <input type="text" id="website"><br>
+    <span class="error" id="websiteError"></span><br>
+
+    <label>Message:</label><br>
+    <textarea id="message" rows="4" cols="30"></textarea><br>
+    <span class="error" id="messageError"></span><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function validateForm() {
+      let isValid = true;
+
+      // Clear previous errors
+      document.querySelectorAll(".error").forEach(el => el.textContent = "");
+      document.querySelectorAll("input, textarea").forEach(el => el.classList.remove("error-border"));
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const website = document.getElementById("website").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      // Name validation
+      if (name === "") {
+        document.getElementById("nameError").textContent = "This field is required";
+        document.getElementById("name").classList.add("error-border");
+        isValid = false;
+      }
+
+      // Email validation
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email === "") {
+        document.getElementById("emailError").textContent = "This field is required";
+        document.getElementById("email").classList.add("error-border");
+        isValid = false;
+      } else if (!emailPattern.test(email)) {
+        document.getElementById("emailError").textContent = "A valid email address is required";
+        document.getElementById("email").classList.add("error-border");
+        isValid = false;
+      }
+
+      // Website validation
+      const urlPattern = /^(https?:\/\/)?([\w\d\-]+\.)+\w{2,}(\/\S*)?$/;
+      if (website === "") {
+        document.getElementById("websiteError").textContent = "This field is required";
+        document.getElementById("website").classList.add("error-border");
+        isValid = false;
+      } else if (!urlPattern.test(website)) {
+        document.getElementById("websiteError").textContent = "A valid URL is required";
+        document.getElementById("website").classList.add("error-border");
+        isValid = false;
+      }
+
+      // Message validation
+      if (message === "") {
+        document.getElementById("messageError").textContent = "This field is required";
+        document.getElementById("message").classList.add("error-border");
+        isValid = false;
+      }
+
+      return isValid;
+    }
+  </script>
+
+</body>
+</html>
