@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #7a52cc;
+      color: white;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .input-box {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 4px 4px 10px #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .input-box input {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      margin-right: 10px;
+    }
+
+    .input-box button {
+      padding: 10px 20px;
+      background-color: #7a52cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .result {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .result div {
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 4px 4px 10px #333;
+      font-size: 20px;
+    }
+
+    .result span {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AGE CALCULATOR</h1>
+    <div class="input-box">
+      <input type="date" id="dob">
+      <button onclick="calculateAge()">Calculate</button>
+    </div>
+    <div class="result">
+      <div><span id="years">00</span><br>YEAR</div>
+      <div><span id="months">00</span><br>MONTH</div>
+      <div><span id="days">00</span><br>DAY</div>
+    </div>
+  </div>
+
+  <script>
+    function calculateAge() {
+      let dob = document.getElementById("dob").value;
+      if (!dob) {
+        alert("Please select your birth date.");
+        return;
+      }
+
+      let dobDate = new Date(dob);
+      let today = new Date();
+
+      if (dobDate > today) {
+        alert("Birth date cannot be in the future!");
+        return;
+      }
+
+      let years = today.getFullYear() - dobDate.getFullYear();
+      let months = today.getMonth() - dobDate.getMonth();
+      let days = today.getDate() - dobDate.getDate();
+
+      if (days < 0) {
+        months -= 1;
+        let prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+
+      if (months < 0) {
+        years -= 1;
+        months += 12;
+      }
+
+      document.getElementById("years").textContent = years.toString().padStart(2, '0');
+      document.getElementById("months").textContent = months.toString().padStart(2, '0');
+      document.getElementById("days").textContent = days.toString().padStart(2, '0');
+    }
+  </script>
+</body>
+</html>
