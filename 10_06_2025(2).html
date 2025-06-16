@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Timer</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #eaf2f8;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    #timeDisplay {
+      font-size: 2em;
+      margin: 20px 0;
+    }
+
+    .timer-btn {
+      padding: 10px 20px;
+      margin: 0 5px;
+      font-size: 1em;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .start { background-color: #4a9; color: white; }
+    .stop { background-color: red; color: white; }
+    .reset { background-color: lightgreen; }
+  </style>
+</head>
+<body>
+
+  <h1>TIMER</h1>
+  <div id="timeDisplay">25:00</div>
+  <button class="timer-btn start" onclick="startTimer()">START</button>
+  <button class="timer-btn stop" onclick="stopTimer()">STOP</button>
+  <button class="timer-btn reset" onclick="resetTimer()">RESET</button>
+
+ <script>
+  let time = 25 * 60;
+  let timerInterval;
+
+  function updateDisplay() {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    document.getElementById("timeDisplay").innerText =
+      `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+  function startTimer() {
+    if (timerInterval) return;
+    timerInterval = setInterval(() => {
+      if (time > 0) {
+        time--;
+        updateDisplay();
+      } else {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        alert("Time's up!");
+      }
+    }, 1000);
+  }
+
+  function stopTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+
+  function resetTimer() {
+    stopTimer();
+    time = 25 * 60;
+    updateDisplay();
+  }
+
+  updateDisplay();
+</script>
+
+</body>
+</html>

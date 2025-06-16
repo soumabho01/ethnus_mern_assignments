@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    #taskInput {
+      padding: 8px;
+      width: 200px;
+    }
+
+    #addTask {
+      padding: 8px;
+    }
+
+    #tasks {
+      margin-top: 20px;
+    }
+
+    .task {
+      display: flex;
+      justify-content: space-between;
+      background: #f0f0f0;
+      padding: 10px;
+      margin: 5px auto;
+      width: 300px;
+      border-radius: 5px;
+    }
+
+    .deleteBtn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>To-Do List</h1>
+  <input type="text" id="taskInput" placeholder="Enter a new task">
+  <button id="addTask">Add</button>
+  <div id="tasks"></div>
+
+  <script>
+    document.getElementById("addTask").onclick = function() {
+      const taskText = document.getElementById("taskInput").value;
+      if (taskText.trim() === "") return;
+
+      const taskDiv = document.createElement("div");
+      taskDiv.className = "task";
+
+      const span = document.createElement("span");
+      span.innerText = taskText;
+
+      const del = document.createElement("button");
+      del.innerText = "Delete";
+      del.className = "deleteBtn";
+      del.onclick = () => taskDiv.remove();
+
+      taskDiv.appendChild(span);
+      taskDiv.appendChild(del);
+
+      document.getElementById("tasks").appendChild(taskDiv);
+      document.getElementById("taskInput").value = "";
+    };
+  </script>
+
+</body>
+</html>

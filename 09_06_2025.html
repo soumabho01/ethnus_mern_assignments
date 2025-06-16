@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Save and Load with LocalStorage</title>
+</head>
+<body>
+  <h2>Enter your details</h2>
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" placeholder="Enter name"><br><br>
+
+  <label for="age">Age:</label>
+  <input type="number" id="age" placeholder="Enter age"><br><br>
+
+  <button id="saveBtn">Save</button>
+  <button id="loadBtn">Load</button>
+
+  <script>
+    const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
+    const saveBtn = document.getElementById('saveBtn');
+    const loadBtn = document.getElementById('loadBtn');
+
+    saveBtn.addEventListener('click', () => {
+      const name = nameInput.value;
+      const age = ageInput.value;
+
+      // Save to localStorage
+      localStorage.setItem('name', name);
+      localStorage.setItem('age', age);
+
+      alert('Data saved!');
+    });
+
+    loadBtn.addEventListener('click', () => {
+      // Load from localStorage
+      const name = localStorage.getItem('name') || '';
+      const age = localStorage.getItem('age') || '';
+
+      nameInput.value = name;
+      ageInput.value = age;
+
+      alert('Data loaded!');
+    });
+  </script>
+</body>
+</html>
